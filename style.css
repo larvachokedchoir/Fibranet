@@ -49,6 +49,17 @@ body {
   font-size: 0.85rem;
 }
 
+.app__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app__count {
+  font-size: 0.85rem;
+  color: #9fb0ff;
+}
+
 .panel {
   background: rgba(20, 25, 44, 0.9);
   border-radius: 20px;

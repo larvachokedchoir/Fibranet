@@ -13,7 +13,10 @@
         <p class="app__eyebrow">Locked Workspace</p>
         <h1>Fibra Chat</h1>
       </div>
-      <div class="app__status" id="statusBadge" aria-live="polite">Locked</div>
+      <div class="app__meta">
+        <span class="app__status" id="statusBadge" aria-live="polite">Locked</span>
+        <span class="app__count" id="memberCount" aria-live="polite">0 members</span>
+      </div>
     </header>
 
     <section class="panel" id="lockPanel">
@@ -70,6 +73,7 @@
     </section>
   </main>
 
+  <script src="/socket.io/socket.io.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
