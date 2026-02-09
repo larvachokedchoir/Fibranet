@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fibra Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <div>
+        <p class="app__eyebrow">Locked Workspace</p>
+        <h1>Fibra Chat</h1>
+      </div>
+      <div class="app__meta">
+        <span class="app__status" id="statusBadge" aria-live="polite">Locked</span>
+        <span class="app__count" id="memberCount" aria-live="polite">0 members</span>
+      </div>
+    </header>
+
+    <section class="panel" id="lockPanel">
+      <div class="panel__content">
+        <h2>Enter the password</h2>
+        <p class="muted">Only members with the correct password can enter. Use <strong>fibra</strong>.</p>
+        <form id="passwordForm" class="stack">
+          <label class="field">
+            <span>Password</span>
+            <input type="password" id="passwordInput" autocomplete="current-password" required />
+          </label>
+          <button type="submit" class="btn">Unlock</button>
+        </form>
+        <p class="error" id="passwordError" role="alert" aria-live="assertive"></p>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="profilePanel">
+      <div class="panel__content">
+        <h2>Set up your member profile</h2>
+        <p class="muted">Members can use their own name and a short status message.</p>
+        <form id="profileForm" class="stack">
+          <label class="field">
+            <span>Display name</span>
+            <input type="text" id="nameInput" maxlength="24" required />
+          </label>
+          <label class="field">
+            <span>Status</span>
+            <input type="text" id="statusInput" maxlength="48" placeholder="e.g. Building the network" />
+          </label>
+          <button type="submit" class="btn">Enter chat</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="panel hidden" id="chatPanel">
+      <div class="panel__content">
+        <div class="chat__header">
+          <div>
+            <h2 id="welcomeHeading">Welcome</h2>
+            <p class="muted" id="memberStatus"></p>
+          </div>
+          <button class="btn btn--ghost" id="lockButton" type="button">Lock session</button>
+        </div>
+        <div class="chat__window" id="chatWindow" aria-live="polite"></div>
+        <form id="chatForm" class="chat__form">
+          <label class="field field--grow">
+            <span class="sr-only">Message</span>
+            <input type="text" id="messageInput" placeholder="Type your message" maxlength="140" required />
+          </label>
+          <button type="submit" class="btn">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
